@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 Feb, 2023 5:04:46 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="pojo.Order" table="order" catalog="coza_store">
+        <id name="orderId" type="java.lang.Integer">
+            <column name="orderId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="product" class="pojo.Product" fetch="select">
+            <column name="pid" />
+        </many-to-one>
+        <many-to-one name="user" class="pojo.User" fetch="select">
+            <column name="uid" />
+        </many-to-one>
+        <property name="orderDate" type="string">
+            <column name="orderDate" length="50" />
+        </property>
+        <property name="amount" type="java.lang.Float">
+            <column name="amount" precision="12" scale="0" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>
